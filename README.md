@@ -1,6 +1,6 @@
 # Poly2d
 
-Library to manage 2D polygons.
+Library to manage 2D convex polygons.
 
 Requires:
  - Eigen (https://eigen.tuxfamily.org)
@@ -15,5 +15,5 @@ Example of usage:
   Poly2d t = Poly2d(triangle), s = Poly2d(square);
   
   // testing basic operations
-  Poly2d u = square.ConvexUnion(triangle), square.MinkowskiSum(triangle), square.Intersection(triangle);
+  Poly2d u = square.ConvexUnion(triangle), square.MinkowskiSum(triangle);
 ```
