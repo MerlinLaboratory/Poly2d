@@ -18,3 +18,4 @@ Example of usage:
     Poly2d x = s.Intersection(t);
     std::cout << x << std::endl;
 ```
+![example](https://user-images.githubusercontent.com/60401657/166119387-a5c3bd0b-702b-4b5d-bd67-91833c6ecdaa.png)
