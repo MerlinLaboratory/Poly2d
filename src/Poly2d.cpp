@@ -106,8 +106,8 @@ Poly2d Poly2d::Intersection(Poly2d &p) {
         }
     }
     
-    // simplify and return
-    Poly2d m = Poly2d(v); m.Simplify();
+    // order vertices (no need to simplify) and return
+    Poly2d m = Poly2d(v); m.OrderVertices();
     return m;
 
 }
