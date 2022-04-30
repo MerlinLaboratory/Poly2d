@@ -112,6 +112,15 @@ Poly2d Poly2d::Intersection(Poly2d &p) {
 
 }
 
+ostream& operator<<(ostream& os, Poly2d &p) {
+    
+    os << "Polygon:";
+    vector<Vector2d>::iterator it;
+    for(it = p.mPoints.begin(); it != p.mPoints.end(); ++it) os << " (" << (*it)(0) << ", " << (*it)(1) << ")";
+    return os;
+    
+}
+
 
 void Poly2d::Simplify() {
     
@@ -123,19 +132,19 @@ void Poly2d::Simplify() {
     // Compute convex hull
     quickhull::QuickHull<double> qh;
     auto hull = qh.getConvexHull(allpoints, true, false);
-    const auto& indexBuffer = hull.getIndexBuffer();
     const auto& vertexBuffer = hull.getVertexBuffer();
     
     // Extract vertices and order them counter-clockwise
     vector<Vector2d> vsimple;
-    for(size_t i = 0; i < indexBuffer.size(); ++i)
-        vsimple.push_back( Vector2d(vertexBuffer[indexBuffer[i]].x, vertexBuffer[indexBuffer[i]].y) );
+    for(size_t i = 0; i < vertexBuffer.size(); ++i) vsimple.push_back( Vector2d(vertexBuffer[i].x, vertexBuffer[i].y) );
     this->mPoints = vsimple;
     this->OrderVertices();
     
 }
 
 void Poly2d::OrderVertices() {
+    
+    if(this->mPoints.empty()) return;
     
     // compute centroid
     Vector2d c = Vector2d::Zero();
@@ -164,7 +173,6 @@ bool sort_fun(pair<Vector2d, double> &x, pair<Vector2d, double> &y) {
 
 bool segm_intersection(Vector2d &a, Vector2d &b, Vector2d &c, Vector2d &d, Vector2d* pinter) {
     
-    pinter = NULL;
     double a1 = SIGNED_AREA(a, b, d); // Compute winding of abd (+ or -)
     double a2 = SIGNED_AREA(a, b, c); // To intersect, must have sign opposite of a1
     if (a1 * a2 < 0.0f) {
