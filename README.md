@@ -28,4 +28,4 @@ Example of usage:
 ```
 
 Result:
-![untitled](https://user-images.githubusercontent.com/60401657/166135265-39f75af1-30fa-4fe5-90f6-01b0fe73ff9a.png)
+![untitled](https://user-images.githubusercontent.com/60401657/166135282-6394be3f-489f-46a2-aff0-d8d17fca4db7.png)
