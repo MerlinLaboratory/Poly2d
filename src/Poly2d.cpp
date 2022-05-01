@@ -116,7 +116,7 @@ ostream& operator<<(ostream& os, Poly2d &p) {
     
     os << "Polygon:";
     vector<Vector2d>::iterator it;
-    for(it = p.mPoints.begin(); it != p.mPoints.end(); ++it) os << " (" << (*it)(0) << ", " << (*it)(1) << ")";
+    for(it = p.mPoints.begin(); it != p.mPoints.end(); ++it) os << " " << (*it)(0) << ", " << (*it)(1) << ";";
     return os;
     
 }
