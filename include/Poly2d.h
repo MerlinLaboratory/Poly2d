@@ -7,10 +7,12 @@
 
 class Poly2d {
 public:
-// constructor
+// constructors
+    Poly2d() { };
     Poly2d(std::vector<Eigen::Vector2d>& points);
 // methods
     bool IsInside(Eigen::Vector2d& p);
+    bool IsEmpty();
     double Area();
 // operations
     Poly2d ConvexUnion(Poly2d &p);

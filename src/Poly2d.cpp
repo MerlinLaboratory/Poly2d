@@ -27,6 +27,14 @@ bool Poly2d::IsInside(Vector2d& point) {
     
 }
 
+bool Poly2d::IsEmpty() {
+    
+    if(this->mPoints.empty()) return true;
+    else if(this->Area() <= .0) return true;
+    return false;
+    
+}
+
 double Poly2d::Area() {
     
     double area = .0;
@@ -116,7 +124,7 @@ ostream& operator<<(ostream& os, Poly2d &p) {
     
     os << "Polygon:";
     vector<Vector2d>::iterator it;
-    for(it = p.mPoints.begin(); it != p.mPoints.end(); ++it) os << " " << (*it)(0) << ", " << (*it)(1) << ";";
+    for(it = p.mPoints.begin(); it != p.mPoints.end(); ++it) os << " " << (*it)(0) << ", " << (*it)(1) << "; ";
     return os;
     
 }
