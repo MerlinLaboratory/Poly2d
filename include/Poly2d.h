@@ -19,6 +19,8 @@ public:
     Poly2d MinkowskiSum(Poly2d &p);
     Poly2d MinkowskiDiff(Poly2d &p);
     Poly2d Intersection(Poly2d &p);
+// getters
+    std::vector<Eigen::Vector2d>* GetVertices() { return &this->mPoints; };
 // operators
     friend std::ostream& operator<<(std::ostream& os, Poly2d &p);
 private:
